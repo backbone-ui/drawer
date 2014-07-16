@@ -20,6 +20,7 @@
 		options : {
 			drawerEl : ".sidebar",
 			maskEl : ".ui-drawer-mask",
+			/*contentEl: false,*/
 			contentEl: ".content",
 			/*contentMove: false,*/
 			contentMove: "displace",
@@ -40,10 +41,9 @@
 
 		toggle: function(e) {
 			e.preventDefault();
-			console.log("Im hit");
 			$(this.options.drawerEl).toggleClass("active");
 			
-			if (this.options.contentMove) {
+			if ( (this.options.contentEl) && (this.options.contentMove) ) {
 			
 				$(this.options.contentEl).toggleClass(this.options.contentMove);
 			}
@@ -53,7 +53,7 @@
 
 		resize: function() {
 			$( this.options.drawerEl ).removeClass('active');
-			if (this.options.contentMove) {
+			if ( (this.options.contentEl) && (this.options.contentMove) ) {
 				$( this.options.contentEl ).removeClass(this.options.contentMove);
 			}
 		},
