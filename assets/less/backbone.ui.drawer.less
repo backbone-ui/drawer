@@ -2,7 +2,7 @@
 	
 }
 
-.main .sidebar {
+.main .sidebar, .main .content {
 	-webkit-transition: all .5s; 
 	transition: all .5s;
 }
@@ -39,6 +39,14 @@
 	.main .sidebar.active .ui-drawer-control:after {
 		/*content:"\00b6";*/
 		content: "\003c";
+	}
+	
+	.main .content.displace {
+		-webkit-transform: translateX(80%);
+		-moz-transform: translateX(80%);
+		-ms-transform: translateX(80%);
+		-o-transform: translateX(80%);
+		transform: translateX(80%);
 	}
 }
 

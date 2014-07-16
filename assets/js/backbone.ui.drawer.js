@@ -15,11 +15,14 @@
 
 	Backbone.UI.Drawer = View.extend({
 
-		el : '.sidebar',
+		el : '.main',
 
 		options : {
-			navEl : "ul.nav",
+			drawerEl : ".sidebar",
 			maskEl : ".ui-drawer-mask",
+			contentEl: ".content",
+			/*contentMove: false,*/
+			contentMove: "displace",
 			// preventDefault: false
 		},
 
@@ -38,15 +41,22 @@
 		toggle: function(e) {
 			e.preventDefault();
 			console.log("Im hit");
-			$(this.el).toggleClass("active");
+			$(this.options.drawerEl).toggleClass("active");
+			
+			if (this.options.contentMove) {
+			
+				$(this.options.contentEl).toggleClass(this.options.contentMove);
+			}
 			/*$( this.options.navEl ).toggleClass('ui-drawer-active');
 			$( this.options.maskEl ).toggleClass('ui-drawer-active');*/
 		},
 
-		/*resize: function() {
-			$( this.options.navEl ).removeClass('ui-drawer-active');
-			$( this.options.maskEl ).removeClass('ui-drawer-active');
-		},*/
+		resize: function() {
+			$( this.options.drawerEl ).removeClass('active');
+			if (this.options.contentMove) {
+				$( this.options.contentEl ).removeClass(this.options.contentMove);
+			}
+		},
 
 		/*postRender: function() {
 			// check if we have the drawer control
