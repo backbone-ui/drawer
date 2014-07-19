@@ -20,10 +20,10 @@
 		options : {
 			drawerEl : ".sidebar",
 			maskEl : ".ui-drawer-mask",
-			/*contentEl: false,*/
-			contentEl: ".content",
-			/*contentMove: false,*/
-			contentMove: "displace",
+			contentEl: false,
+			/*contentEl: ".content",*/
+			contentMove: false,
+			/*contentMove: "displace",*/
 			// preventDefault: false
 		},
 
