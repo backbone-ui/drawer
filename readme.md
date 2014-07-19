@@ -44,7 +44,7 @@ contentEl: ".content",
 
 ## Credits
 
-Initiated by Lyndel Thomas ( [@tracend](http://github.com/ryndel) )
+Initiated by Lyndel Thomas ( [@ryndel](http://github.com/ryndel) )
 
 Distributed through [Makesites.org](http://makesites.org/)
 
