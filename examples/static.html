@@ -198,7 +198,7 @@ header.top h1 {
 			<li><a href="">This is the 12th item</a></li>
 			<li><a href="">This is the 13th item</a></li>
 		</ul>
-		<div class="ui-drawer-control"></div>
+		<!-- a href="" class="ui-drawer-control"></a -->
 	</div>
 	
 	<div class="content">
@@ -227,7 +227,11 @@ header.top h1 {
 <script type="text/javascript" src="../assets/js/backbone.ui.drawer.js"></script>
 <script type="text/javascript">
 // instantiate view
-var view = new Backbone.UI.Drawer();
+var view = new Backbone.UI.Drawer({
+	// contentEl: ".content",
+	// contentMove: "displace"
+	});
+view.postRender();	
 
 </script>
 </body>

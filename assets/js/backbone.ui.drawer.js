@@ -19,17 +19,9 @@
 
 		options : {
 			drawerEl : ".sidebar",
-			// maskEl : ".ui-drawer-mask",
-			/* contentEl: false, */
-			contentEl: ".content",
-			/*contentMove: false,*/
-			contentMove: "displace",
-			// preventDefault: false,
-			screenSize: "all",
+			contentEl: false,
+			contentMove: false,
 			position: "left",
-			// position: "left",
-			// position: "left",
-			// position: "left"
 		},
 
 		initialize: function( options ){
@@ -41,7 +33,6 @@
 
 		events: {
 			"click .ui-drawer-control": "toggle",
-			
 		},
 
 		toggle: function(e) {
@@ -49,7 +40,6 @@
 			$(this.options.drawerEl).toggleClass("active");
 			
 			if ( (this.options.contentEl) && (this.options.contentMove) ) {
-			
 				$(this.options.contentEl).toggleClass(this.options.contentMove);
 			}
 			/*$( this.options.navEl ).toggleClass('ui-drawer-active');
@@ -63,19 +53,16 @@
 			}
 		},
 
-		/*postRender: function() {
+		postRender: function() {
 			// check if we have the drawer control
-			var control = $(this.el).find(".ui-drawer-control");
+			console.log("Im in postrender");
+			var control = $(this.options.drawerEl).find(".ui-drawer-control");
 			if( !control.length ) {
 				// add it to the el
 				var $el = $('<a href="" class="ui-drawer-control"></a>');
-				// $(this.el).find("header").prepend($el);
-				$(this.el).prepend($el);
-
-				// $( this.options.navEl ).addClass("ui-drawer-target");
-
+				$(this.options.drawerEl).prepend($el);
 			}
-		}*/
+		}
 	});
 
 })(this._, this.Backbone);
