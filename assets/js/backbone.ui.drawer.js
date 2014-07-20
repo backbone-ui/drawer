@@ -18,15 +18,18 @@
 		el : '.main',
 
 		options : {
-			drawerEl : ".sidebar",
+			drawerEl : ".drawer",
 			contentEl: false,
 			contentMove: false,
 			position: "left",
+			mobileOnly: false,
 		},
 
 		initialize: function( options ){
 			var self = this;
 			window.addEventListener('resize', function(){ self.resize() }, false);
+			
+			$(this.options.drawerEl).addClass("ui-drawer-target");
 
 			return View.prototype.initialize.call(this, options);
 		},
@@ -55,12 +58,16 @@
 
 		postRender: function() {
 			// check if we have the drawer control
-			console.log("Im in postrender");
-			var control = $(this.options.drawerEl).find(".ui-drawer-control");
-			if( !control.length ) {
+			// console.log("Im in postrender");
+			var control = $(this.options.drawerEl).find(".ui-dr awer-control");
+			if ( !control.length ) {
 				// add it to the el
 				var $el = $('<a href="" class="ui-drawer-control"></a>');
 				$(this.options.drawerEl).prepend($el);
+			}
+			
+			if (this.options.mobileOnly) {
+				$(this.el).addClass("mobile-only");
 			}
 		}
 	});
