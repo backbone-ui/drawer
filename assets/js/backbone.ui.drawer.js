@@ -15,13 +15,13 @@
 
 	Backbone.UI.Drawer = View.extend({
 
-		el : '.main',
+		el : '.ui-drawer',
 
 		options : {
 			drawerEl : ".drawer",
 			contentEl: false,
 			contentMove: false,
-			position: "left",
+			position: "top-left",
 			mobileOnly: false,
 		},
 
@@ -29,7 +29,7 @@
 			var self = this;
 			window.addEventListener('resize', function(){ self.resize() }, false);
 			
-			$(this.options.drawerEl).addClass("ui-drawer-target");
+			$(this.options.drawerEl).addClass("ui-drawer-target " + this.options.position);
 
 			return View.prototype.initialize.call(this, options);
 		},
@@ -62,7 +62,7 @@
 			var control = $(this.options.drawerEl).find(".ui-dr awer-control");
 			if ( !control.length ) {
 				// add it to the el
-				var $el = $('<a href="" class="ui-drawer-control"></a>');
+				var $el = $('<a href="#" class="ui-drawer-control"></a>');
 				$(this.options.drawerEl).prepend($el);
 			}
 			
