@@ -19,12 +19,17 @@
 
 		options : {
 			drawerEl : ".sidebar",
-			maskEl : ".ui-drawer-mask",
-			contentEl: false,
-			/*contentEl: ".content",*/
-			contentMove: false,
-			/*contentMove: "displace",*/
-			// preventDefault: false
+			// maskEl : ".ui-drawer-mask",
+			/* contentEl: false, */
+			contentEl: ".content",
+			/*contentMove: false,*/
+			contentMove: "displace",
+			// preventDefault: false,
+			screenSize: "all",
+			position: "left",
+			// position: "left",
+			// position: "left",
+			// position: "left"
 		},
 
 		initialize: function( options ){
