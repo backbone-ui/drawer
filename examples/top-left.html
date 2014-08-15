@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Backbone UI Drawer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- link rel="stylesheet" href="../assets/css/backbone.ui.drawer.css" type="text/css" media="screen" -->
+<link type="text/css" href="../assets/less/backbone.ui.drawer.less" media="screen" rel="stylesheet/less">
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.3.3/less.min.js"></script>
+
+<style>
+
+* {
+	margin: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+html, body {
+	width: 100%;
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
+}
+html {
+	font-size: 100%;
+	line-height: 160%;
+	line-height: 1.5;
+}
+
+body {
+	font-size: 1.2rem;
+	letter-spacing: 0.01rem;
+	color: #000;
+	background-color:#fff;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body.touch {
+	width: 100%;
+	height:	100%;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 1rem 0;
+}
+
+a, a:visited, a:link {
+	color: #2ac1f7;
+}
+
+p {
+	margin: .75rem 0;
+}
+
+ul.nav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.nav li {
+	margin: 0;
+}
+
+ul.nav li a {
+	display: block;
+	text-decoration: none;
+}
+
+header.top {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	padding: .5em;
+	height: 50px;
+	background-color: #000;
+	z-index: 999;
+}
+	
+header.top h1 {
+	font-size: 1rem;
+	color: #fff;
+	margin: 0;
+}
+
+.main {
+	height: 100%;
+	overflow: hidden;
+	background-color: #fff;
+	padding-top: 50px;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 1em;
+}
+
+.sidebar {
+	top: 50px;
+	background-color: #fafafa;
+	border-right: 1px solid #ccc;
+}
+
+.sidebar ul {
+	overflow-y: scroll;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0px;
+	top: 0;
+}
+
+.sidebar ul	li {
+	border-bottom: 1px solid #f8f8f8;
+}
+	
+.sidebar ul	li.selected {
+	background-color: #fff;
+}
+		
+.sidebar ul	li a {
+	padding: 2em 1em;
+}
+
+.content {
+	width: 80%;
+	position: absolute;
+	left: 20%;
+	top: 50px;
+	bottom: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+	
+.content > h1 {
+	padding: 0 1em;
+}
+	
+.content .hero {
+	width: 100%;
+	min-height: 300px;
+	background-image: url(assets/img/ta.jpg);
+	background-size: cover;
+	background-repeat:no-repeat;
+	padding: 1em;
+}
+
+.content .hero h2 {
+	padding: 1em;
+	margin: 0;
+	text-align: center;
+}
+
+.main .content {
+	width: 100%;
+	left: 0;
+	z-index: 1;
+}
+
+@media screen and (min-width: 46.8em) {
+	.ui-drawer.mobile-only {
+		
+	}	
+	.ui-drawer.mobile-only .ui-drawer-control {
+		display: none;
+	}
+		
+	.ui-drawer.mobile-only .ui-drawer-target.top-left {
+		width: 20%;
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-o-transform: translateX(0);
+		transform: translateX(0);
+	}
+		
+	.ui-drawer.mobile-only .content {
+		width: 80%;
+		left: 20%;
+	}
+}
+	
+	
+
+</style>
+
+</head>
+<body>
+
+<header class="top">
+	<h1>This is the header</h1>
+</header>
+<div class="main clearfix ui-drawer">
+	<div class="sidebar"> 
+		<ul class="nav">
+			<li class="selected"><a href="">This is the 1st item</a></li>
+			<li><a href="">This is the 2nd item</a></li>
+			<li><a href="">This is the 3rd item</a></li>
+			<li><a href="">This is the 4th item</a></li>
+			<li><a href="">This is the 5th item</a></li>
+			<li><a href="">This is the 6th item</a></li>
+			<li><a href="">This is the 7th item</a></li>
+			<li><a href="">This is the 8th item</a></li>
+			<li><a href="">This is the 9th item</a></li>
+			<li><a href="">This is the 10th item</a></li>
+			<li><a href="">This is the 11th item</a></li>
+			<li><a href="">This is the 12th item</a></li>
+			<li><a href="">This is the 13th item</a></li>
+		</ul>
+		<!-- a href="" class="ui-drawer-control"></a -->
+	</div>
+	
+	<div class="content">
+		<!-- h1>Heading</h1 -->
+		<div class="hero">
+			<h2></h2>
+		</div>
+		<div class="container">
+			<p>Banksy skateboard before they sold out Pinterest PBR&amp;B gastropub. YOLO VHS art party photo booth, Shoreditch polaroid messenger bag butcher cray post-ironic hella pork belly. Quinoa messenger bag YOLO, beard twee hella locavore cornhole sartorial kitsch fap banh mi blog pop-up tofu. Semiotics drinking vinegar Neutra Wes Anderson, raw denim asymmetrical butcher ethnic you probably haven't heard of them photo booth before they sold out biodiesel. Vegan pickled aesthetic banh mi, letterpress Truffaut whatever asymmetrical butcher Thundercats kale chips. Pop-up High Life readymade, Vice master cleanse synth cray art party chambray DIY pug swag VHS yr. Chillwave art party McSweeney's, retro umami Cosby sweater chambray kogi Truffaut.</p>
+			<p>Disrupt try-hard butcher pickled, church-key fanny pack occupy fingerstache direct trade mustache tousled sartorial bicycle rights aesthetic. Mumblecore lo-fi stumptown Echo Park, Bushwick blog tofu. Next level brunch iPhone, gluten-free VHS Portland freegan fashion axe artisan ennui. Mustache sriracha hella, ethnic Vice kogi selvage plaid Thundercats freegan leggings VHS beard kale chips. Polaroid iPhone cornhole, irony ugh fanny pack +1. Ugh Pitchfork VHS next level raw denim. Before they sold out mustache actually, direct trade hella Truffaut mixtape fixie bitters.</p>
+			<p>Disrupt try-hard butcher pickled, church-key fanny pack occupy fingerstache direct trade mustache tousled sartorial bicycle rights aesthetic. Mumblecore lo-fi stumptown Echo Park, Bushwick blog tofu. Next level brunch iPhone, gluten-free VHS Portland freegan fashion axe artisan ennui. Mustache sriracha hella, ethnic Vice kogi selvage plaid Thundercats freegan leggings VHS beard kale chips. Polaroid iPhone cornhole, irony ugh fanny pack +1. Ugh Pitchfork VHS next level raw denim. Before they sold out mustache actually, direct trade hella Truffaut mixtape fixie bitters.</p>
+			<p>Disrupt try-hard butcher pickled, church-key fanny pack occupy fingerstache direct trade mustache tousled sartorial bicycle rights aesthetic. Mumblecore lo-fi stumptown Echo Park, Bushwick blog tofu. Next level brunch iPhone, gluten-free VHS Portland freegan fashion axe artisan ennui. Mustache sriracha hella, ethnic Vice kogi selvage plaid Thundercats freegan leggings VHS beard kale chips. Polaroid iPhone cornhole, irony ugh fanny pack +1. Ugh Pitchfork VHS next level raw denim. Before they sold out mustache actually, direct trade hella Truffaut mixtape fixie bitters.</p>
+			<p>Disrupt try-hard butcher pickled, church-key fanny pack occupy fingerstache direct trade mustache tousled sartorial bicycle rights aesthetic. Mumblecore lo-fi stumptown Echo Park, Bushwick blog tofu. Next level brunch iPhone, gluten-free VHS Portland freegan fashion axe artisan ennui. Mustache sriracha hella, ethnic Vice kogi selvage plaid Thundercats freegan leggings VHS beard kale chips. Polaroid iPhone cornhole, irony ugh fanny pack +1. Ugh Pitchfork VHS next level raw denim. Before they sold out mustache actually, direct trade hella Truffaut mixtape fixie bitters.</p>
+			<p>Disrupt try-hard butcher pickled, church-key fanny pack occupy fingerstache direct trade mustache tousled sartorial bicycle rights aesthetic. Mumblecore lo-fi stumptown Echo Park, Bushwick blog tofu. Next level brunch iPhone, gluten-free VHS Portland freegan fashion axe artisan ennui. Mustache sriracha hella, ethnic Vice kogi selvage plaid Thundercats freegan leggings VHS beard kale chips. Polaroid iPhone cornhole, irony ugh fanny pack +1. Ugh Pitchfork VHS next level raw denim. Before they sold out mustache actually, direct trade hella Truffaut mixtape fixie bitters.</p>
+			<p>Disrupt try-hard butcher pickled, church-key fanny pack occupy fingerstache direct trade mustache tousled sartorial bicycle rights aesthetic. Mumblecore lo-fi stumptown Echo Park, Bushwick blog tofu. Next level brunch iPhone, gluten-free VHS Portland freegan fashion axe artisan ennui. Mustache sriracha hella, ethnic Vice kogi selvage plaid Thundercats freegan leggings VHS beard kale chips. Polaroid iPhone cornhole, irony ugh fanny pack +1. Ugh Pitchfork VHS next level raw denim. Before they sold out mustache actually, direct trade hella Truffaut mixtape fixie bitters.</p>
+			<p>Disrupt try-hard butcher pickled, church-key fanny pack occupy fingerstache direct trade mustache tousled sartorial bicycle rights aesthetic. Mumblecore lo-fi stumptown Echo Park, Bushwick blog tofu. Next level brunch iPhone, gluten-free VHS Portland freegan fashion axe artisan ennui. Mustache sriracha hella, ethnic Vice kogi selvage plaid Thundercats freegan leggings VHS beard kale chips. Polaroid iPhone cornhole, irony ugh fanny pack +1. Ugh Pitchfork VHS next level raw denim. Before they sold out mustache actually, direct trade hella Truffaut mixtape fixie bitters.</p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="//rawgithub.com/commons/common.js/master/build/common-min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+
+<script type="text/javascript" src="../assets/js/backbone.ui.drawer.js"></script>
+<script type="text/javascript">
+// instantiate view
+var view = new Backbone.UI.Drawer({
+	
+	drawerEl: ".sidebar",
+	contentEl: ".content",
+	contentMove: true,
+	mobileOnly: false,
+	});
+view.postRender();	
+
+</script>
+</body>
+</html>
