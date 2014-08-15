@@ -19,7 +19,7 @@
 
 		options : {
 			drawerEl : ".drawer",
-			contentEl: false,
+			contentEl: "",
 			contentMove: false,
 			position: "top-left",
 			mobileOnly: false,
@@ -43,7 +43,7 @@
 			$(this.options.drawerEl).toggleClass("active");
 			
 			if ( (this.options.contentEl) && (this.options.contentMove) ) {
-				$(this.options.contentEl).toggleClass(this.options.contentMove);
+				$(this.options.contentEl).toggleClass("displace");
 			}
 			/*$( this.options.navEl ).toggleClass('ui-drawer-active');
 			$( this.options.maskEl ).toggleClass('ui-drawer-active');*/
@@ -59,7 +59,7 @@
 		postRender: function() {
 			// check if we have the drawer control
 			// console.log("Im in postrender");
-			var control = $(this.options.drawerEl).find(".ui-dr awer-control");
+			var control = $(this.options.drawerEl).find(".ui-drawer-control");
 			if ( !control.length ) {
 				// add it to the el
 				var $el = $('<a href="#" class="ui-drawer-control"></a>');
