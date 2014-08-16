@@ -19,7 +19,7 @@
 
 		options : {
 			mainEl : ".main",
-			contentEl: "",
+			contentEl: ".content",
 			contentMove: false,
 			position: "top-left",
 			mobileOnly: false,
@@ -28,8 +28,11 @@
 		initialize: function( options ){
 			var self = this;
 			window.addEventListener('resize', function(){ self.resize() }, false);
+			// extend options
+			this.options = _.extend( {}, this.options, options);
 			
 			$(this.el).addClass(this.options.position).addClass("ui-drawer");
+			$(this.options.contentEl).addClass("ui-drawer-content");
 
 			return View.prototype.initialize.call(this, options);
 		},
@@ -50,10 +53,10 @@
 		resize: function() {
 			$( this.el ).removeClass('active');
 			if ( (this.options.contentEl) && (this.options.contentMove) ) {
-				$( this.options.contentEl ).removeClass(this.options.contentMove);
+				$( this.options.contentEl ).removeClass("displace");
 			}
 		},
-
+		
 		postRender: function() {
 			// check if we have the drawer control
 			var control = $(this.el).find(".ui-drawer-control");
