@@ -18,7 +18,7 @@
 		el : '.ui-drawer',
 
 		options : {
-			drawerEl : ".drawer",
+			mainEl : ".main",
 			contentEl: "",
 			contentMove: false,
 			position: "top-left",
@@ -29,7 +29,7 @@
 			var self = this;
 			window.addEventListener('resize', function(){ self.resize() }, false);
 			
-			$(this.options.drawerEl).addClass("ui-drawer-target " + this.options.position);
+			$(this.el).addClass(this.options.position).addClass("ui-drawer");
 
 			return View.prototype.initialize.call(this, options);
 		},
@@ -40,17 +40,15 @@
 
 		toggle: function(e) {
 			e.preventDefault();
-			$(this.options.drawerEl).toggleClass("active");
+			$(this.el).toggleClass("active");
 			
 			if ( (this.options.contentEl) && (this.options.contentMove) ) {
 				$(this.options.contentEl).toggleClass("displace");
 			}
-			/*$( this.options.navEl ).toggleClass('ui-drawer-active');
-			$( this.options.maskEl ).toggleClass('ui-drawer-active');*/
 		},
 
 		resize: function() {
-			$( this.options.drawerEl ).removeClass('active');
+			$( this.el ).removeClass('active');
 			if ( (this.options.contentEl) && (this.options.contentMove) ) {
 				$( this.options.contentEl ).removeClass(this.options.contentMove);
 			}
@@ -58,16 +56,15 @@
 
 		postRender: function() {
 			// check if we have the drawer control
-			// console.log("Im in postrender");
-			var control = $(this.options.drawerEl).find(".ui-drawer-control");
+			var control = $(this.el).find(".ui-drawer-control");
 			if ( !control.length ) {
 				// add it to the el
 				var $el = $('<a href="#" class="ui-drawer-control"></a>');
-				$(this.options.drawerEl).prepend($el);
+				$(this.el).prepend($el);
 			}
 			
 			if (this.options.mobileOnly) {
-				$(this.el).addClass("mobile-only");
+				$(this.options.mainEl).addClass("mobile-only");
 			}
 		}
 	});

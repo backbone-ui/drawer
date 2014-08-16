@@ -204,8 +204,8 @@ header.top h1 {
 <header class="top">
 	<h1>This is the header</h1>
 </header>
-<div class="main clearfix ui-drawer">
-	<div class="sidebar"> 
+<div class="main clearfix">
+	<div class="sidebar ui-drawer"> 
 		<ul class="nav">
 			<li class="selected"><a href="">This is the 1st item</a></li>
 			<li><a href="">This is the 2nd item</a></li>
@@ -251,6 +251,7 @@ header.top h1 {
 <script type="text/javascript">
 // instantiate view
 var view = new Backbone.UI.Drawer({
+	el : ".sidebar",
 	
 	drawerEl: ".sidebar",
 	contentEl: ".content",

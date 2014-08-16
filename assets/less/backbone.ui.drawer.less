@@ -1,127 +1,119 @@
+.ui-drawer, .content {
+	-webkit-transition: all .5s; 
+	transition: all .5s;
+}
+
 .ui-drawer {
-	.ui-drawer-target, .content {
-		-webkit-transition: all .5s; 
-		transition: all .5s;
-	}
-	
-	.ui-drawer-target {
-		position: absolute;
-		z-index: 999;
-		opacity: 1;
-		overflow: none;
-	}
-	
-	.ui-drawer-target.top-left {
-		width: 20%;
-		left: 0;
-		top: 50px;
-		bottom: 0;
-		-webkit-transform: translateX(-100%);
-		-moz-transform: translateX(-100%);
-		-ms-transform: translateX(-100%);
-		-o-transform: translateX(-100%);
-		transform: translateX(-100%); 
-	
-			.ui-drawer-control {
-				position: absolute;
-				top: 0px;
-				right: 0px;
-				height: 100%;
-				color: #999;
-				width: 20px;
-				padding: 0 5px;
-				background-color: #fff;
-				margin-right: -20px;
-				text-decoration: none;
-			}
-		
-			.ui-drawer-control:after {
-				content:"\003e";
-			}
-		
-			&.active {
-			-webkit-transform: translateX(0);
-			-moz-transform: translateX(0);
-			-ms-transform: translateX(0);
-			-o-transform: translateX(0);
-			transform: translateX(0);
-			
-			.ui-drawer-control {
-				margin-right: 0;
-				z-index: 999;
-			}
-			
-			.ui-drawer-control:after {
-				content: "\003c";
-			}
+	position: absolute;
+	z-index: 999;
+	opacity: 1;
+	overflow: none;
+}
+
+.ui-drawer.top-left {
+	width: 20%;
+	left: 0;
+	top: 50px;
+	bottom: 0;
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	-o-transform: translateX(-100%);
+	transform: translateX(-100%); 
+
+		.ui-drawer-control {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			height: 100%;
+			color: #999;
+			width: 20px;
+			padding: 0 5px;
+			background-color: #fff;
+			margin-right: -20px;
+			text-decoration: none;
 		}
-	}
 	
-	.ui-drawer-target.top-right {
-		width: 100%;
-		left: 0;
-		top: 0px;
-		
-		-webkit-transform: translateY(-100%);
-		-moz-transform: translateY(-100%);
-		-ms-transform: translateY(-100%);
-		-o-transform: translateY(-100%);
-		transform: translateY(-100%);
-	
-			.ui-drawer-control {
-				position: absolute;
-				top: 50px;
-				right: 0px;
-				color: #000;
-				height: auto;
-				width: auto;
-				padding: 0 5px;
-				background-color: #fff;
-				text-decoration: none;
-				font-size: 2em;
-			}
-		
-			.ui-drawer-control:after {
-				content:"\2c5";
-				float: right;
-			}
-		
-			&.active {
-			-webkit-transform: translateY(0);
-			-moz-transform: translateY(0);
-			-ms-transform: translateY(0);
-			-o-transform: translateY(0);
-			transform: translateY(0);
-			
-			.ui-drawer-control {
-				margin-right: 0;
-				z-index: 999;
-			}
-			
-			.ui-drawer-control:after {
-				content: "\2c4";
-			}
+		.ui-drawer-control:after {
+			content:"\003e";
 		}
-	}
 	
-	.content.displace {
-		-webkit-transform: translateX(25%);
-		-moz-transform: translateX(25%);
-		-ms-transform: translateX(25%);
-		-o-transform: translateX(25%);
-		transform: translateX(25%);
-		width: 80%;
-	}
-	
-	ui-drawer.left {
-	}
-	
-	ui-drawer.right {
-	}
-	
-	ui-drawer.bottom {
-	}
-	
-	ui-drawer.top {
+		&.active {
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-o-transform: translateX(0);
+		transform: translateX(0);
+		
+		.ui-drawer-control {
+			margin-right: 0;
+			z-index: 999;
+		}
+		
+		.ui-drawer-control:after {
+			content: "\003c";
+		}
 	}
 }
+
+.ui-drawer.top-right {
+	width: 100%;
+	left: 0;
+	top: 0px;
+	
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	transform: translateY(-100%);
+
+		.ui-drawer-control {
+			position: absolute;
+			top: 50px;
+			right: 0px;
+			color: #000;
+			height: auto;
+			width: auto;
+			padding: 0 5px;
+			background-color: #fff;
+			text-decoration: none;
+			font-size: 2em;
+		}
+	
+		.ui-drawer-control:after {
+			content:"\2c5";
+			float: right;
+		}
+	
+		&.active {
+		-webkit-transform: translateY(0);
+		-moz-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-o-transform: translateY(0);
+		transform: translateY(0);
+		
+		.ui-drawer-control {
+			margin-right: 0;
+			z-index: 999;
+		}
+		
+		.ui-drawer-control:after {
+			content: "\2c4";
+		}
+	}
+}
+
+.content.displace {
+	-webkit-transform: translateX(25%);
+	-moz-transform: translateX(25%);
+	-ms-transform: translateX(25%);
+	-o-transform: translateX(25%);
+	transform: translateX(25%);
+	width: 80%;
+}
+
+ui-drawer.bottom-right {
+}
+
+ui-drawer.bottom.left {
+}	
