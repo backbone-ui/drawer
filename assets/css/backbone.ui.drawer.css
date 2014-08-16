@@ -95,5 +95,5 @@
   -ms-transform: translateX(25%);
   -o-transform: translateX(25%);
   transform: translateX(25%);
-  width: 80%;
+  width: 80% !important;
 }
