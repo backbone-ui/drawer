@@ -6,14 +6,25 @@
 // Licensed under the MIT license:
 // http://makesites.org/licenses/MIT
 
-(function(_, Backbone) {
+(function (lib) {
+
+	//"use strict";
+
+	if (typeof define === 'function' && define.amd) {
+		// AMD. Register as an anonymous module.
+		define(['jquery', 'underscore', 'backbone'], lib);
+	} else {
+		// Browser globals
+		lib($, _, Backbone);
+	}
+}(function ($, _, Backbone) {
 
 	// fallbacks
 	if( _.isUndefined( Backbone.UI ) ) Backbone.UI = {};
 	// Support backbone app (if available)
 	var View = ( typeof APP != "undefined" && !_.isUndefined( APP.View) ) ? APP.View : Backbone.View;
 
-	Backbone.UI.Drawer = View.extend({
+	var Drawer = View.extend({
 
 		el : '.ui-drawer',
 
@@ -30,7 +41,7 @@
 			window.addEventListener('resize', function(){ self.resize() }, false);
 			// extend options
 			this.options = _.extend( {}, this.options, options);
-			
+
 			$(this.el).addClass(this.options.position).addClass("ui-drawer");
 			$(this.options.contentEl).addClass("ui-drawer-content");
 
@@ -42,9 +53,10 @@
 		},
 
 		toggle: function(e) {
-			e.preventDefault();
+			// block click, if triggered
+			if( e ) e.preventDefault();
 			$(this.el).toggleClass("active");
-			
+
 			if ( (this.options.contentEl) && (this.options.contentMove) ) {
 				$(this.options.contentEl).toggleClass("displace");
 			}
@@ -56,7 +68,7 @@
 				$( this.options.contentEl ).removeClass("displace");
 			}
 		},
-		
+
 		postRender: function() {
 			// check if we have the drawer control
 			var control = $(this.el).find(".ui-drawer-control");
@@ -65,11 +77,15 @@
 				var $el = $('<a href="#" class="ui-drawer-control"></a>');
 				$(this.el).prepend($el);
 			}
-			
+
 			if (this.options.mobileOnly) {
 				$(this.options.mainEl).addClass("mobile-only");
 			}
 		}
 	});
 
-})(this._, this.Backbone);
+	Backbone.UI.Drawer = Drawer;
+
+	return Drawer;
+
+}));
