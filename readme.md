@@ -1,6 +1,6 @@
 # Backbone UI: Drawer
 
-A flexible UI Drawer for 
+A flexible UI Drawer that can be used on any block element.  
 
 ## Install
 
